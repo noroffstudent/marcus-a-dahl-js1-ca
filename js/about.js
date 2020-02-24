@@ -17,5 +17,5 @@ document.addEventListener("DOMContentLoaded", function () {
                     .replace(/The\s/g, "Replace ");
             }
         });
-    }, 500);
+    }, 4000);
 });
