@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         let heading = document.querySelector(".content h1");
-        let paragraphs = document.querySelectorAll("blockquote > :not(cite)")
+        let paragraphs = document.querySelectorAll("blockquote > p");
+        let citation = document.querySelector("p cite");
 
         // Handle heading text
         heading.innerText = heading.innerText
@@ -10,9 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Handle paragraph texts
         paragraphs.forEach(paragraph => {
-            paragraph.innerText = paragraph.innerText
-                .replace(/\sthe\s/g, " replace ")
-                .replace(/The\s/g, "Replace ");
+            if (!paragraph.contains(citation)) {
+                paragraph.innerText = paragraph.innerText
+                    .replace(/\sthe\s/g, " replace ")
+                    .replace(/The\s/g, "Replace ");
+            }
         });
-    }, 4000);
+    }, 500);
 });
