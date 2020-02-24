@@ -34,7 +34,7 @@ function initializeDetails(data) {
     image.setAttribute("alt", data.name);
 
     let details = document.createElement("div");
-    details.setAttribute("class", "detail-details")
+    details.setAttribute("class", "detail-details");
 
     let name = document.createElement("h1");
 
