@@ -14,7 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 container.appendChild(createColumnCard(payload.results[i]));
             }
         })
-        .catch(error => console.error);
+        .catch(error => {
+            window.location.href = "error.html";
+        });
 });
 
 function createColumnCard(data) {
