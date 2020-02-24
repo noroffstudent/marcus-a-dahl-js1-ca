@@ -37,6 +37,20 @@ function createColumnCard(data) {
     };
     let button = document.createElement("a");
 
+    column.setAttribute("class", "col-sm-6 col-md-4 col-lg-3");
+    card.setAttribute("class", "card");
+
+    image.setAttribute("class", "image");
+    image.setAttribute("src", data.image);
+    image.setAttribute("alt", data.name);
+
+    text.name.setAttribute("class", "name");
+    text.name.innerText = data.name;
+    text.type.innerText = data.name;
+
+    button.setAttribute("class", "btn btn-primary");
+    button.setAttribute("href", `details.html?id=${data.id}`);
+
     // DOM Structure
     card.appendChild(image);
     card.appendChild(text.name);
@@ -45,7 +59,6 @@ function createColumnCard(data) {
     card.appendChild(button);
 
     column.appendChild(card);
-
 
     return column;
 }
