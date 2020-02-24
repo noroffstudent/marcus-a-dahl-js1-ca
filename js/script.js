@@ -39,7 +39,9 @@ function createColumnCard(data) {
 
     text.name.setAttribute("class", "name");
     text.name.innerText = data.name;
-    text.type.innerText = data.name;
+    text.type.innerText = data.type !== "" ? data.type : "Unknown";
+
+    text.episodeCount.innerText = `Episode count: ${data.episode.length}`;
 
     button.setAttribute("class", "btn btn-primary");
     button.setAttribute("href", `details.html?id=${data.id}`);
