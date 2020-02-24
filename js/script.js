@@ -1,5 +1,6 @@
 const API = "https://rickandmortyapi.com/api/character/";
 
+
 document.addEventListener("DOMContentLoaded", function () {
     const container = document.querySelector(".results");
 
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "error.html";
         });
 });
+
 
 function createColumnCard(data) {
     // Create elements needed to represent desired HTML

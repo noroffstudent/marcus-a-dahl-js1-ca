@@ -1,5 +1,6 @@
 const API = "https://rickandmortyapi.com/api/character/";
 
+
 document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(document.location.search);
 
@@ -14,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.querySelector(".loader").setAttribute("style", "display: none;");
                 
                 initializeDetails(payload);
+
+                document.title = payload.name;
             })
             .catch(function (error) {
                 window.location.href = "error.html";
