@@ -8,28 +8,29 @@ document.addEventListener("DOMContentLoaded", function () {
         // first name must have a value
         let firstName = document.getElementById("firstName").value;
 
-        document.getElementById("firstNameError").style.display = firstName.length > 0 ? "none" : "block";
+        document.querySelector("#firstName + .form-error").style.display = firstName.length > 0 ? "none" : "block";
 
         // last name must have a value
         let lastName = document.getElementById("lastName").value;
 
-        document.getElementById("lastNameError").style.display = lastName.length > 0 ? "none" : "block";
+        document.querySelector("#lastName + .form-error").style.display = lastName.length > 0 ? "none" : "block";
 
         // email must have a value and be valid
         let email = document.getElementById("email").value;
+        let error = document.querySelectorAll("#email ~ .form-error");
 
         if (email.length > 0) {
-            document.getElementById("invalidEmailError").style.display = /\S+@\S+\.\S+/.test(email) ? "none" : "block";
-            document.getElementById("emailError").style.display = "none";
+            error[1].style.display = /\S+@\S+\.\S+/.test(email) ? "none" : "block";
+            error[0].style.display = "none";
         }
         else {
-            document.getElementById("emailError").style.display = "block";
-            document.getElementById("invalidEmailError").style.display = "none";
+            error[0].style.display = "block";
+            error[1].style.display = "none";
         }
 
         // must be at least 10 characters long
         let message = document.getElementById("message").value;
 
-        document.getElementById("messageError").style.display = message.length >= 10 ? "none" : "block";
+        document.querySelector("textarea ~ .form-error").style.display = message.length >= 10 ? "none" : "block";
     });
 });
