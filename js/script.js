@@ -1,14 +1,20 @@
-const API = "https://rickandmortyapi.com/api/character";
+const API = "https://rickandmortyapi.com/api/character/";
 
-document.addEventListener("ready", function () {
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.querySelector(".results");
 
-    // Step 1: Query API and fetch payload data
+    fetch(API)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (payload) {
+            document.querySelector(".loader").setAttribute("style", "display: none;")
 
-    // Step 2: Go through each result
-
-    // Step 3: Create elements needed to display the results
-
-    // Step 4: Add these elements to the container which holds all the results
+            for (let i = 0, n = payload.results.length; i < n; i ++) {
+                container.appendChild(createColumnCard(payload.results[i]));
+            }
+        })
+        .catch(error => console.error);
 });
 
 function createColumnCard(data) {
@@ -28,7 +34,7 @@ function createColumnCard(data) {
 
     // Create elements needed to represent desired HTML
     let column = document.createElement("div");
-    let card = document.createelement("div");
+    let card = document.createElement("div");
     let image = document.createElement("img");
     let text = {
         name: document.createElement("h4"),
@@ -50,6 +56,7 @@ function createColumnCard(data) {
 
     button.setAttribute("class", "btn btn-primary");
     button.setAttribute("href", `details.html?id=${data.id}`);
+    button.innerText = "Details";
 
     // DOM Structure
     card.appendChild(image);
